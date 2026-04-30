@@ -9,7 +9,7 @@ const MarqueePage = async () => {
   return (
     <div className="container mx-auto">
       <section>
-        <div className="flex items-center bg-amber-800 text-white py-5 px-4 overflow-hidden">
+        <div className="flex items-center bg-[#281911] text-white py-5 px-4 overflow-hidden">
           <button className="bg-white text-amber-800 px-4 py-2 rounded-md font-semibold whitespace-nowrap">
             New Arrivals:
           </button>
