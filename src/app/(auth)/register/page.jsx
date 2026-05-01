@@ -38,14 +38,14 @@ const RegisterPage = () => {
     <div className="">
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col ">
-          <div className="card bg-base-100 w-full  shrink-0 shadow-2xl p-10">
+          <div className="card bg-base-100 w-full  shrink-0 shadow-2xl p-4 md:p-10">
             <div className="text-center">
-              <h1 className="text-5xl font-bold text-amber-950">
+              <h1 className="text-2xl md:text-5xl font-bold text-amber-950">
                 Register your account
               </h1>
             </div>
             <hr className="mt-6 text-gray-400" />
-            <div className="card-body w-[400px] mx-auto">
+            <div className="card-body md:w-[400px] mx-auto">
               <form onSubmit={handleSubmit(handleRegisterForm)}>
                 <fieldset className="fieldset">
                   <label className="label">Name</label>

@@ -8,10 +8,7 @@ import { toast } from "react-toastify";
 
 const BookDetails = async ({ params }) => {
   const { id } = await params;
-//   const bookDetails = await fetch(`http://localhost:5000/Data/${id}`);
-//   const bookDetails = await bookDetails.json();
   const bookDetails = await allBooksId(id)
-  console.log(bookDetails);
   return (
     <div className="container mx-auto md:mt-20">
       <div className=" flex flex-col md:flex-row justify-center gap-8 shadow-2xl p-4 rounded-2xl">

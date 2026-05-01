@@ -11,7 +11,7 @@ const NavLink = ({href, children}) => {
 
     return (
         <div>
-            <Link className={`${isActive && 'border-b-2 border-[#6158d4]' }`} href={href}>{children}</Link>
+            <Link className={`font-bold ${isActive && 'border-b-2 border-[#6158d4]' }`} href={href}>{children}</Link>
         </div>
     );
 };

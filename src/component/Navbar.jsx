@@ -17,9 +17,13 @@ const Navbar = () => {
       <li>
         <NavLink href={"/all-books"}>All Books</NavLink>
       </li>
-      <li>
+      {
+        data?.user ? <li>
         <NavLink href={"/myProfile"}>My Profile</NavLink>
+      </li> : <li>
+        <NavLink href={"/login"}>My Profile</NavLink>
       </li>
+      }
     </>
   );
   return (
