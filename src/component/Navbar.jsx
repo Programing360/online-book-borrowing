@@ -1,19 +1,27 @@
-'use client'
+"use client";
 import React from "react";
-import logo from '../assets/download (4).jpg' 
+import logo from "../assets/download (4).jpg";
 import Image from "next/image";
 import Link from "next/link";
 import NavLink from "./shered/NavLink";
-import { useSession } from "@/lib/auth-client";
-const Navbar = () => {
-    const {data} = useSession()
-    console.log(data);
-    const menuItem = <>
-        <li><NavLink href={'/'}>Home</NavLink></li>
-        <li><NavLink href={'/all-books'}>All Books</NavLink></li>
-        <li><NavLink href={'/myProfile'}>My Profile</NavLink></li>
-    </>
+import { signOut, useSession } from "@/lib/auth-client";
 
+const Navbar = () => {
+  const { data, isPending } = useSession();
+  console.log(data?.user);
+  const menuItem = (
+    <>
+      <li>
+        <NavLink href={"/"}>Home</NavLink>
+      </li>
+      <li>
+        <NavLink href={"/all-books"}>All Books</NavLink>
+      </li>
+      <li>
+        <NavLink href={"/myProfile"}>My Profile</NavLink>
+      </li>
+    </>
+  );
   return (
     <div className="navbar bg-base-100 container mx-auto">
       <div className="navbar-start">
@@ -42,16 +50,34 @@ const Navbar = () => {
             {menuItem}
           </ul>
         </div>
-        <Image src={logo} alt="online book" className="p-0" width={70} height={70}></Image>
+        <Image
+          src={logo}
+          alt="online book"
+          className="p-0"
+          width={70}
+          height={70}
+        ></Image>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-         {menuItem}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{menuItem}</ul>
       </div>
       <div className="navbar-end gap-3">
-        <Link href={'/login'}><button className="border px-5 py-2 rounded-lg bg-[#6158d4] text-white">Login</button></Link>
-        <button className="border px-5 py-2 rounded-lg hover:bg-[#6158d4] hover:text-white transition-all duration-75">Log out</button>
+        {isPending ? (
+          <p>Loading...</p>
+        ) : data?.user ? (
+          <button
+            onClick={async () => await signOut()}
+            className="btn px-5 py-2 bg-[#281911] rounded-lg hover:bg-[#6158d4] text-white transition-all duration-75"
+          >
+            Log out
+          </button>
+        ) : (
+          <Link href={"/login"}>
+            <button className="border px-5 py-2 rounded-lg bg-[#6158d4] text-white">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

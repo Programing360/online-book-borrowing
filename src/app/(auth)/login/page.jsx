@@ -3,9 +3,10 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: { errors },} = useForm();
   const handleLoginForm = async (userData) => {
     const { data, error } = await authClient.signIn.email({
       email: userData.email, // required
@@ -13,7 +14,13 @@ const LoginPage = () => {
       rememberMe: true,
       callbackURL: "/",
     });
-    console.log(data, error);
+    if (error) {
+      toast.error(error.message || "Something is wrong");
+    }
+    if (data?.user) {
+      toast.success("User register Successful");
+    }
+    console.log(error);
   };
 
   return (
@@ -44,6 +51,7 @@ const LoginPage = () => {
                     className="input w-full outline-0"
                     placeholder="write your Password"
                   />
+                  {errors.password && <p>password must be 8 character.</p>}
                   <div>
                     <a className="link link-hover">Forgot password?</a>
                   </div>
@@ -51,9 +59,9 @@ const LoginPage = () => {
                     Login
                   </button>
                   <p className="text-center">
-                    Already Have an account?{" "}
-                    <Link href={"/login"} className="text-red-400">
-                      Login
+                    Don't Have an account?{" "}
+                    <Link href={"/register"} className="text-red-400">
+                     Register
                     </Link>
                   </p>
                 </fieldset>

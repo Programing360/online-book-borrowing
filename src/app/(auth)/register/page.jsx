@@ -76,6 +76,7 @@ const RegisterPage = () => {
                     className="input w-full outline-0"
                     placeholder="write your Password"
                   />
+                  {errors && <p>password must be 8 character.</p>}
                   <div>
                     <a className="link link-hover">Forgot password?</a>
                   </div>
