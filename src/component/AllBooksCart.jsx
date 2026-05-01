@@ -1,5 +1,6 @@
 "use client";
 
+import { useSession } from "@/lib/auth-client";
 import { allBooksData } from "@/lib/data";
 import { Search } from "lucide-react";
 import Image from "next/image";
@@ -9,8 +10,9 @@ import React, { useState } from "react";
 const AllBooksCart = ({ booksData }) => {
   const [searchText, setSearchText] = useState("");
   const [filterBooks, setFilterBooks] = useState(booksData);
+  const { data, isPending } = useSession();
   const handleSearchInput = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const matchBookData = booksData.filter((book) =>
       book.title.toLowerCase().trim().includes(searchText.toLowerCase().trim()),
@@ -57,17 +59,27 @@ const AllBooksCart = ({ booksData }) => {
                     className="h-[200px]"
                   ></Image>
                 </figure>
-                <div className="card-body items-center text-center">
+                <div className="card-body w-full items-center text-center">
                   <h2 className="card-title">{book.title}</h2>
                   <p className="font-semibold">{book.author}</p>
-                  <p>{book.description}</p>
-                  <div className="card-actions w-full">
-                    <Link href={`/bookDetails/${book.id}`}>
-                      <button className="btn bg-[#403229] w-full text-white rounded-full active:scale-95">
-                      View Details
-                    </button>
-                    </Link>
-                  </div>
+                  <p className="line-clamp-2">{book.description}</p>
+                  {data?.user ? (
+                    <div className="card-actions ">
+                      <Link href={`/bookDetails/${book.id}`}>
+                        <button className="btn bg-[#403229] w-full text-white rounded-full active:scale-95">
+                          View Details
+                        </button>
+                      </Link>
+                    </div>
+                  ) : (
+                    <div className="card-actions ">
+                      <Link href={'/login'}>
+                        <button className="btn bg-[#403229] w-full text-white rounded-full active:scale-95">
+                          View Details
+                        </button>
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

@@ -1,3 +1,4 @@
+import { useSession } from "@/lib/auth-client";
 import { allBooksData } from "@/lib/data";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -5,7 +6,8 @@ import Link from "next/link";
 import React from "react";
 
 const FeaturedBooks = async () => {
-  const data = await allBooksData();
+  const bookData = await allBooksData();
+    
   return (
     <div className="container mx-auto mt-14">
       <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
@@ -22,7 +24,7 @@ const FeaturedBooks = async () => {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 px-2">
-        {data.slice(0, 4).map((book) => (
+        {bookData.slice(0, 4).map((book) => (
           <div key={book.id}>
             <div className="card bg-base-100  shadow-2xl">
               <figure className="">
@@ -33,11 +35,11 @@ const FeaturedBooks = async () => {
                   height={400}
                 ></Image>
               </figure>
-              <div className="card-body items-center text-center">
+              <div className="card-body w-full items-center text-center">
                 <h2 className="card-title">{book.title}</h2>
                 <p className="font-semibold">{book.author}</p>
-                <p>{book.description}</p>
-                <div className="card-actions w-full">
+                <p className="line-clamp-2">{book.description}</p>
+                <div className="flex justify-center">
                   <Link href={`/bookDetails/${book.id}`}>
                     <button className="btn bg-[#403229] w-full text-white rounded-full active:scale-95">
                       View Details

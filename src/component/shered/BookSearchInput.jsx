@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import AllBooksCart from '../AllBooksCart';
 
 const BookSearchInput = async ({searchParams}) => {
@@ -9,7 +9,9 @@ const BookSearchInput = async ({searchParams}) => {
     const booksData = await data.json()
     return (
         <div>
-            <AllBooksCart allBooksData={booksData}></AllBooksCart>
+            <Suspense fallback={<p className='text-center text-2xl font-bold'>Loading</p>}>
+                <AllBooksCart allBooksData={booksData}></AllBooksCart>
+            </Suspense>
         </div>
     );
 };
