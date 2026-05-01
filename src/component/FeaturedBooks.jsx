@@ -1,6 +1,7 @@
 import { allBooksData } from "@/lib/data";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const FeaturedBooks = async () => {
@@ -13,12 +14,15 @@ const FeaturedBooks = async () => {
           <p>Handpicked top reads just for you.</p>
         </div>
         <div>
-            
-          <button className="btn rounded-xl ">View All Books <ArrowRight></ArrowRight></button>
+          <Link href={'/all-books'}>
+            <button className="btn rounded-xl ">
+              View All Books <ArrowRight></ArrowRight>
+            </button>
+          </Link>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 px-2">
-        {data.slice(0,4).map((book) => (
+        {data.slice(0, 4).map((book) => (
           <div key={book.id}>
             <div className="card bg-base-100  shadow-2xl">
               <figure className="">
@@ -34,9 +38,11 @@ const FeaturedBooks = async () => {
                 <p className="font-semibold">{book.author}</p>
                 <p>{book.description}</p>
                 <div className="card-actions w-full">
-                  <button className="btn bg-[#403229] w-full text-white rounded-full active:scale-95">
-                    View Details
-                  </button>
+                  <Link href={`/bookDetails/${book.id}`}>
+                    <button className="btn bg-[#403229] w-full text-white rounded-full active:scale-95">
+                      View Details
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
