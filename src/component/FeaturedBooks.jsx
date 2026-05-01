@@ -7,7 +7,7 @@ const FeaturedBooks = async () => {
   const data = await allBooksData();
   return (
     <div className="container mx-auto mt-14">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold mb-2">Featured Books</h1>
           <p>Handpicked top reads just for you.</p>
@@ -17,7 +17,7 @@ const FeaturedBooks = async () => {
           <button className="btn rounded-xl ">View All Books <ArrowRight></ArrowRight></button>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 px-2">
         {data.slice(0,4).map((book) => (
           <div key={book.id}>
             <div className="card bg-base-100  shadow-2xl">
