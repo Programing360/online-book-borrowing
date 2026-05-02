@@ -8,7 +8,7 @@ import { signOut, useSession } from "@/lib/auth-client";
 
 const Navbar = () => {
   const { data, isPending } = useSession();
-  // console.log(data?.user);
+  console.log(data?.user);
   const menuItem = (
     <>
       <li>
