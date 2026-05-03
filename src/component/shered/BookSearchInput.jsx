@@ -5,7 +5,7 @@ const BookSearchInput = async ({searchParams}) => {
 
     const queary = searchParams.query || '';
 
-    const data = await fetch(`http://localhost:5000/Data?search=${queary}`)
+    const data = await fetch(`https://online-book-server-n8my.onrender.com/Data?search=${queary}`)
     const booksData = await data.json()
     return (
         <div>
