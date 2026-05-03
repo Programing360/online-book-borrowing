@@ -5,10 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import NavLink from "./shered/NavLink";
 import { signOut, useSession } from "@/lib/auth-client";
-import 'animate.css';
+import "animate.css";
+import { CircleUser } from "lucide-react";
 
 const Navbar = () => {
   const { data, isPending } = useSession();
+  console.log(data);
+  const user = data?.user;
   const menuItem = (
     <>
       <li>
@@ -57,21 +60,25 @@ const Navbar = () => {
               {menuItem}
             </ul>
           </div>
+          <Link href={"/"}>
+            <Image
+              src={logo}
+              alt="online book"
+              className=" hidden lg:block"
+              width={100}
+              height={10}
+            ></Image>
+          </Link>
+        </div>
+        <Link href={"/"}>
           <Image
             src={logo}
             alt="online book"
-            className=" hidden lg:block"
+            className=" mx-auto lg:hidden"
             width={100}
-            height={10}
+            height={100}
           ></Image>
-        </div>
-        <Image
-          src={logo}
-          alt="online book"
-          className=" mx-auto lg:hidden"
-          width={100}
-          height={100}
-        ></Image>
+        </Link>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{menuItem}</ul>
         </div>
@@ -79,12 +86,46 @@ const Navbar = () => {
           {isPending ? (
             <p>Loading...</p>
           ) : data?.user ? (
-            <button
-              onClick={async () => await signOut()}
-              className="btn px-5 py-2 bg-[#281911] rounded-lg hover:bg-[#6158d4] text-white transition-all duration-75"
-            >
-              Log out
-            </button>
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                {user ? (
+                  <Image
+                    src={user?.image}
+                    alt="user"
+                    width={30}
+                    height={30}
+                  ></Image>
+                ) : (
+                  <div className=" rounded-full">
+                    <CircleUser size={40} />
+                  </div>
+                )}
+              </div>
+              <ul
+                tabIndex="-1"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <Link href={"/myProfile"} className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href={""}>Settings</Link>
+                </li>
+                <button
+                  onClick={async () => await signOut()}
+                  className="btn px-5 py-2 bg-[#281911] rounded-lg hover:bg-[#6158d4] text-white transition-all duration-75 mt-4"
+                >
+                  Log out
+                </button>
+              </ul>
+            </div>
           ) : (
             <Link href={"/login"}>
               <button className="border px-5 py-2 rounded-lg bg-[#6158d4] text-white">

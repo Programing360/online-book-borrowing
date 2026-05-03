@@ -21,7 +21,7 @@ const RegisterPage = () => {
       image: userData.photoUrl,
       fetchOptions: {
         onSuccess: () => {
-          Router.push("/");
+          Router.push("/login");
         },
       }, 
     });
@@ -31,7 +31,6 @@ const RegisterPage = () => {
     if (data?.user) {
       toast.success("User register Successful");
     }
-    console.log(data, error);
   };
 
   return (
