@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import logo from "../assets/download (4).jpg";
+import logo from "../assets/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import NavLink from "./shered/NavLink";
@@ -8,7 +8,6 @@ import { signOut, useSession } from "@/lib/auth-client";
 
 const Navbar = () => {
   const { data, isPending } = useSession();
-  console.log(data?.user);
   const menuItem = (
     <>
       <li>
@@ -17,17 +16,19 @@ const Navbar = () => {
       <li>
         <NavLink href={"/all-books"}>All Books</NavLink>
       </li>
-      {
-        data?.user ? <li>
-        <NavLink href={"/myProfile"}>My Profile</NavLink>
-      </li> : <li>
-        <NavLink href={"/login"}>My Profile</NavLink>
-      </li>
-      }
+      {data?.user ? (
+        <li>
+          <NavLink href={"/myProfile"}>My Profile</NavLink>
+        </li>
+      ) : (
+        <li>
+          <NavLink href={"/login"}>My Profile</NavLink>
+        </li>
+      )}
     </>
   );
   return (
-    <div className="navbar bg-base-100 container mx-auto">
+    <div className="navbar bg-base-100 lg:container mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -57,11 +58,19 @@ const Navbar = () => {
         <Image
           src={logo}
           alt="online book"
-          className="p-0"
-          width={70}
-          height={70}
+          className=" hidden lg:block"
+          width={120}
+          height={120}
+          
         ></Image>
       </div>
+      <Image
+        src={logo}
+        alt="online book"
+        className=" mx-auto lg:hidden"
+        width={100}
+        height={100}
+      ></Image>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{menuItem}</ul>
       </div>

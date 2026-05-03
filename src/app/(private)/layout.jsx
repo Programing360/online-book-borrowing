@@ -1,9 +1,16 @@
+"use client";
 import React from "react";
-import MyProfilePage from "./myProfile/page";
 import { LogOut } from "lucide-react";
 import Link from "next/link";
+import { signOut, useSession } from "@/lib/auth-client";
+import { redirect } from "next/dist/server/api-utils";
 
-const layout = ({ children }) => {
+const LayoutPage = ({ children }) => {
+  const { data } = useSession();
+  const user = data?.user;
+  // if(!user){
+  //   redirect('/login')
+  // }
   return (
     <div className="">
       <div className="drawer ">
@@ -33,7 +40,7 @@ const layout = ({ children }) => {
               </label>
             </div>
             <div className="flex items-center justify-between w-full container mx-auto">
-              <Link href={'/'}>
+              <Link href={"/"}>
                 <div className="mx-2 flex-1 px-2 text-2xl font-bold">
                   My Profile
                 </div>
@@ -41,14 +48,26 @@ const layout = ({ children }) => {
               <div className="hidden flex-none lg:block ">
                 <ul className="menu menu-horizontal items-center gap-4">
                   {/* Navbar menu content here */}
-
-                  <li>
-                    <button className="btn bg-purple-500 text-white hover:bg-purple-500">
-                      {" "}
-                      <LogOut />
-                      Log Out
-                    </button>
-                  </li>
+                  {user ? (
+                    <li>
+                      <button
+                        onClick={async () => await signOut()}
+                        className="btn bg-purple-500 text-white hover:bg-purple-500"
+                      >
+                        <LogOut />
+                        Log Out
+                      </button>
+                    </li>
+                  ) : (
+                    <li>
+                      <Link href={"/login"}>
+                        <button className="btn bg-purple-500 text-white hover:bg-purple-500">
+                          <LogOut />
+                          Login
+                        </button>
+                      </Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
@@ -64,13 +83,26 @@ const layout = ({ children }) => {
           ></label>
           <ul className="menu bg-base-200 min-h-full w-80 p-4">
             {/* Sidebar content here */}
-            <li>
-              <button className="btn bg-purple-500 text-white hover:bg-purple-500">
-                {" "}
-                <LogOut />
-                Log Out
-              </button>
-            </li>
+            {user ? (
+              <li>
+                <button
+                  onClick={async () => await signOut()}
+                  className="btn bg-purple-500 text-white hover:bg-purple-500"
+                >
+                  <LogOut />
+                  Log Out
+                </button>
+              </li>
+            ) : (
+              <li>
+                <Link href={"/login"}>
+                  <button className="btn bg-purple-500 text-white hover:bg-purple-500">
+                    <LogOut />
+                    Login
+                  </button>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
@@ -78,4 +110,4 @@ const layout = ({ children }) => {
   );
 };
 
-export default layout;
+export default LayoutPage;

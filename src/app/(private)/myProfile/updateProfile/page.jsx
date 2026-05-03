@@ -20,9 +20,8 @@ const UpdatePage = () => {
     });
 
   };
-
   return (
-    <div className="shadow-2xl rounded-2xl p-6 flex flex-col items-center md:container mx-auto md:w-5/12 bg-white">
+    <div className="shadow-2xl rounded-2xl p-6 flex flex-col items-center md:container mx-auto md:w-5/12 bg-white dark:text-black">
       <Link className="text-start w-full" href={"/myProfile"}>
         <ArrowLeft size={30}></ArrowLeft>
       </Link>
@@ -57,7 +56,7 @@ const UpdatePage = () => {
             type="text"
             {...register("name", { required: true })}
             placeholder="Type here"
-            className="input w-full "
+            className="input w-full dark:text-white"
           />
         </div>
 
