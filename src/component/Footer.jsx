@@ -1,8 +1,11 @@
+import Link from "next/link";
 import React from "react";
+import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { GrInstagram } from "react-icons/gr";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1f1512] text-white pt-20 pb-10 ">
+    <footer className="bg-[#1f1512] text-white pt-20 pb-10 mt-20">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
           {/* LOGO & ABOUT */}
@@ -16,33 +19,33 @@ const Footer = () => {
 
             {/* SOCIAL LINKS */}
             <div className="flex items-center gap-4 mt-8">
-              <a
+              <Link
                 href="#"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-yellow-400 hover:text-black transition-all flex items-center justify-center"
               >
-                <i className="ri-facebook-fill text-xl"></i>
-              </a>
+                <FaFacebook />
+              </Link>
 
-              <a
+              <Link
                 href="#"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-yellow-400 hover:text-black transition-all flex items-center justify-center"
               >
-                <i className="ri-instagram-line text-xl"></i>
-              </a>
+                <GrInstagram />
+              </Link>
 
-              <a
+              <Link
                 href="#"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-yellow-400 hover:text-black transition-all flex items-center justify-center"
               >
-                <i className="ri-twitter-x-line text-xl"></i>
-              </a>
+               <FaTwitter />
+              </Link>
 
-              <a
+              <Link
                 href="#"
                 className="w-12 h-12 rounded-full bg-white/10 hover:bg-yellow-400 hover:text-black transition-all flex items-center justify-center"
               >
-                <i className="ri-linkedin-fill text-xl"></i>
-              </a>
+               <FaLinkedin />
+              </Link>
             </div>
           </div>
 
@@ -52,27 +55,27 @@ const Footer = () => {
 
             <ul className="space-y-4 text-gray-400">
               <li>
-                <a href="#" className="hover:text-yellow-400 transition">
+                <Link href="/" className="hover:text-yellow-400 transition">
                   Home
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href="#" className="hover:text-yellow-400 transition">
+                <Link href="/all-books" className="hover:text-yellow-400 transition">
                   All Books
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href="#" className="hover:text-yellow-400 transition">
+                <Link href="'/all-books" className="hover:text-yellow-400 transition">
                   Categories
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href="#" className="hover:text-yellow-400 transition">
+                <Link href="/myProfile" className="hover:text-yellow-400 transition">
                   Membership
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -85,19 +88,19 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <i className="ri-map-pin-line text-yellow-400 text-xl"></i>
 
-                <p>Dhangora, Raigonj, Sirajগঞ্জ, Bangladesh</p>
+                <p>Dhangora, Raigonj, Sirajganj, Bangladesh</p>
               </div>
 
               <div className="flex items-center gap-3">
                 <i className="ri-mail-line text-yellow-400 text-xl"></i>
 
-                <p>support@booknest.com</p>
+                <p>fardhanhasanlimon95@gmail.com</p>
               </div>
 
               <div className="flex items-center gap-3">
                 <i className="ri-phone-line text-yellow-400 text-xl"></i>
 
-                <p>+880 1234-567890</p>
+                <p>+880 1754318654</p>
               </div>
             </div>
           </div>
@@ -132,13 +135,13 @@ const Footer = () => {
           </p>
 
           <div className="flex items-center gap-6 text-gray-500">
-            <a href="#" className="hover:text-yellow-400 transition">
+            <Link href="#" className="hover:text-yellow-400 transition">
               Privacy Policy
-            </a>
+            </Link>
 
-            <a href="#" className="hover:text-yellow-400 transition">
+            <Link href="#" className="hover:text-yellow-400 transition">
               Terms & Conditions
-            </a>
+            </Link>
           </div>
         </div>
       </div>

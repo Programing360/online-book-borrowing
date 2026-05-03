@@ -4,7 +4,7 @@ import bannerImage from '@/assets/bannerImage.png'
 
 const Banner = () => {
     return (
-        <div className='container mx-auto'>
+        <div data-aos="zoom-in-right"  suppressHydrationWarning className='container mx-auto'>
             <div className='relative '>
                 <Image src={bannerImage} alt='' className='w-full h-[350px] sm:h-[450px] md:h-[650px] object-cover'></Image>
             </div>

@@ -8,9 +8,13 @@ const Profile = () => {
   const { data } = useSession();
   const user = data?.user;
   return (
-    <div className="shadow-2xl rounded-2xl flex flex-col items-center justify-center mx-auto w-full max-w-2xl p-4 sm:p-6 bg-white dark:text-black">
+    <div
+      data-aos="fade-down"
+      suppressHydrationWarning
+      className="shadow-2xl rounded-2xl flex flex-col items-center justify-center mx-auto w-full max-w-2xl p-4 sm:p-6 bg-white dark:text-black"
+    >
       <div className="w-full text-purple-400">
-        <Link href={'/'}>
+        <Link href={"/"}>
           <House />
         </Link>
       </div>

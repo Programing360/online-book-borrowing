@@ -12,7 +12,7 @@ export default function Home() {
       <MarqueePage></MarqueePage>
       <FeaturedBooks></FeaturedBooks>
       <BookNest></BookNest>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 }

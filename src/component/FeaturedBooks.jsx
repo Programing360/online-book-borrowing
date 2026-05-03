@@ -7,16 +7,20 @@ import React from "react";
 
 const FeaturedBooks = async () => {
   const bookData = await allBooksData();
-    
+
   return (
-    <div className="container mx-auto mt-14">
+    <div
+      data-aos="fade-up"
+       suppressHydrationWarning
+      className="container mx-auto mt-14"
+    >
       <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold mb-2">Featured Books</h1>
           <p>Handpicked top reads just for you.</p>
         </div>
         <div>
-          <Link href={'/all-books'}>
+          <Link href={"/all-books"}>
             <button className="btn rounded-xl ">
               View All Books <ArrowRight></ArrowRight>
             </button>

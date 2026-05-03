@@ -47,13 +47,13 @@ const BookNest = () => {
   };
 
   return (
-    <div className="bg-[#f2efeb]">
+    <div className="bg-[#f2efeb] " >
       <div className=" mt-20 w-full relative">
         <div className="container mx-auto pt-10 ">
           <h1 className="text-2xl font-bold text-center">
             Why Readers Choose BookNest
           </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-2 mt-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-2 mt-5" data-aos="fade-right" suppressHydrationWarning>
             {data.features.map((item) => (
               <div
                 key={item.id}
@@ -83,7 +83,7 @@ const BookNest = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto mt-20 pb-10">
+      <div className="container mx-auto mt-20 pb-10" data-aos="fade-left" suppressHydrationWarning>
         <div className="">
             <Image src={bannerImage} alt="" className="h-100 rounded-2xl"></Image>
         </div>
