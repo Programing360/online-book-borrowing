@@ -1,5 +1,7 @@
 export const allBooksData = async () => {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Data`);
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Data`,{
+    cache: 'no-store'
+  });
   const res = await data.json();
   return res;
 };
