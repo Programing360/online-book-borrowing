@@ -19,7 +19,7 @@ import React, { useState } from "react";
 const AllBooksCart = ({ booksData }) => {
   const [searchText, setSearchText] = useState("");
   const [filterBooks, setFilterBooks] = useState(booksData);
-  const { data, isPending } = useSession();
+  const { data } = useSession();
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const filterBooksData = (category) => {
