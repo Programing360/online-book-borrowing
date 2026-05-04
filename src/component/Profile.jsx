@@ -42,7 +42,7 @@ const Profile = () => {
         </Link>
       )}
 
-      <div className=" w-full mt-8 overflow-x-auto md:overflow-hidden">
+      <div className=" w-full mt-8 overflow-x-auto">
         <div className="min-w-[500px] flex md:gap-28 gap-4 justify-center items-center leading-9">
           <div className="md:ml-20 ml-4 font-semibold w-full space-y-4">
             <h3>Id</h3>

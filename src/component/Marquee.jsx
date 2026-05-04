@@ -4,7 +4,6 @@ import Marquee from "react-fast-marquee";
 
 const MarqueePage = async () => {
   const data = await allBooksData();
-  //   console.log(data);
 
   return (
     <div className="container mx-auto">

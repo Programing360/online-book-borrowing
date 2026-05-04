@@ -10,7 +10,7 @@ import { CircleUser } from "lucide-react";
 
 const Navbar = () => {
   const { data, isPending } = useSession();
-  console.log(data);
+
   const user = data?.user;
   const menuItem = (
     <>
@@ -26,7 +26,7 @@ const Navbar = () => {
         </li>
       ) : (
         <li>
-          <NavLink href={"/login"}>My Profile</NavLink>
+          <NavLink href={"/myProfile"}>My Profile</NavLink>
         </li>
       )}
     </>
@@ -98,6 +98,7 @@ const Navbar = () => {
                     alt="user"
                     width={30}
                     height={30}
+                    className="rounded-full"
                   ></Image>
                 ) : (
                   <div className=" rounded-full">
@@ -128,7 +129,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link href={"/login"}>
-              <button className="border px-5 py-2 rounded-lg bg-[#6158d4] text-white">
+              <button className="border px-5 py-2 rounded-lg bg-[#6158d4] text-white cursor-pointer">
                 Login
               </button>
             </Link>

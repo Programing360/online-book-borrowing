@@ -31,10 +31,10 @@ const LoginPage = () => {
       provider: "google",
     });
 
-    // if(data){
-    //   toast.success('Login Successful')
-    // }
-    console.log(data);
+    if(data){
+      toast.success('Login Successful')
+    }
+
   };
 
   return (
