@@ -7,5 +7,5 @@ export const allBooksData = async () => {
 export const allBooksId = async (id) => {
   const bookDetails = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Data/${id}`);
   const res = await bookDetails.json();
-  return res
+  return res;
 };
