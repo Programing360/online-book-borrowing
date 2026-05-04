@@ -47,7 +47,7 @@ const AllBooksCart = ({ booksData }) => {
   return (
     <div className="grid md:grid-cols-12 gap-4 lg:container mx-auto">
       {/* category for lg */}
-      <div data-aos="fade-right" suppressHydrationWarning className="bg-[#faf6ef] md:h-[800px] p-3 md:col-span-2 rounded-2xl hidden lg:block ">
+      <div data-aos="fade-right" suppressHydrationWarning className="bg-[#faf6ef] md:h-[800px] p-3 md:col-span-2 rounded-2xl hidden lg:block dark:text-black">
         <h1 className="text-2xl font-bold mb-4 w-full flex items-center gap-2">
           <ChartBarStacked /> Categories
         </h1>
@@ -160,7 +160,7 @@ const AllBooksCart = ({ booksData }) => {
       </div>
       
       {/* category for sm */}
-      <div className="md:hidden overflow-scroll w-full mt-3 ">
+      <div className="md:hidden overflow-scroll w-full mt-3">
         <div className=" text-start flex gap-3 overflow-x-scroll w-full">
           <button
             onClick={() => filterBooksData("all")}

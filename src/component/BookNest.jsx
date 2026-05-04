@@ -47,7 +47,7 @@ const BookNest = () => {
   };
 
   return (
-    <div className="bg-[#f2efeb] " >
+    <div className="bg-[#f2efeb] dark:text-black" >
       <div className=" mt-20 w-full relative">
         <div className="container mx-auto pt-10 ">
           <h1 className="text-2xl font-bold text-center">

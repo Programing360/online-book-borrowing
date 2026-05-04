@@ -38,7 +38,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className=" w-full">
+    <div className="w-full ">
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col ">
           <div className="card bg-base-100 w-full shrink-0 shadow-2xl p-4 md:p-10">
@@ -48,7 +48,7 @@ const LoginPage = () => {
               </h1>
             </div>
             <hr className="mt-6 text-gray-400" />
-            <div className="card-body md:w-[400px] mx-auto">
+            <div className="card-body w-90 md:w-[400px] mx-auto">
               <form onSubmit={handleSubmit(handleLoginForm)}>
                 <fieldset className="fieldset">
                   <label className="label">Email</label>

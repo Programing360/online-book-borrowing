@@ -43,7 +43,7 @@ const Profile = () => {
       )}
 
       <div className=" w-full mt-8 overflow-x-auto">
-        <div className="min-w-[500px] flex md:gap-28 gap-4 justify-center items-center leading-9">
+        <div className="min-w-[500px] flex md:gap-10 gap-4 justify-center items-center leading-9 ">
           <div className="md:ml-20 ml-4 font-semibold w-full space-y-4">
             <h3>Id</h3>
             <h3>Name</h3>
@@ -53,7 +53,7 @@ const Profile = () => {
             <h3>Created At</h3>
             <h3>Updated At</h3>
           </div>
-          <div className="space-y-3 break-al">
+          <div className="space-y-3 break-all">
             <p>{user?.id}</p>
             <p>{user?.name}</p>
             <p>{user?.email}</p>
@@ -67,7 +67,7 @@ const Profile = () => {
               </p>
             )}
 
-            <p className="">{user?.image.toString()}</p>
+            <p className="flex-wrap">{user?.image.toString()}</p>
             {new Date(user?.createdAt).toLocaleDateString()}
             <p>{new Date(user?.updatedAt).toLocaleDateString()}</p>
           </div>
